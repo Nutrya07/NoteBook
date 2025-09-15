@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>💕 Notebook untuk Arina 💕</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif !important;
+            font-weight: bold !important;
+        }
+        
+        .notebook-paper {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #f3e8ff 100%);
+            backdrop-filter: blur(15px);
+        }
+        
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .floating:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+        
+        .floating:nth-child(3) {
+            animation-delay: 1.6s;
+        }
+        
+        .floating:nth-child(4) {
+            animation-delay: 2.4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-15px) rotate(8deg); opacity: 0.9; }
+        }
+        
+        .bounce {
+            animation: bounce 2.5s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+        
+        .sparkle {
+            animation: sparkle 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes sparkle {
+            0% { opacity: 0.5; transform: scale(0.9) rotate(0deg); }
+            100% { opacity: 1; transform: scale(1.1) rotate(180deg); }
+        }
+        
+        .heart-beat {
+            animation: heartbeat 1.8s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.05); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.05); }
+            70% { transform: scale(1); }
+        }
+        
+        .note-shadow {
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.15), 0 4px 12px rgba(236, 72, 153, 0.1);
+        }
+        
+        .romantic-border {
+            border: 2px solid rgba(236, 72, 153, 0.3);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 50%, #a21caf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .emoji {
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", "EmojiOne Mozilla", "Twemoji Mozilla", "Segoe UI Symbol", "Noto Emoji", sans-serif;
+        }
+        
+        .romantic-glow {
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.25);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .floating {
+                font-size: 1.2rem !important;
+            }
+        }
+        
+        /* Touch-friendly buttons */
+        .touch-btn {
+            min-height: 48px;
+            min-width: 48px;
+        }
+        
+        /* Slideshow animations */
+        .slide-enter {
+            animation: slideEnter 0.7s ease-out;
+        }
+        
+        @keyframes slideEnter {
+            0% { transform: translateX(100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        .slide-exit {
+            animation: slideExit 0.5s ease-in;
+        }
+        
+        @keyframes slideExit {
+            0% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(-100px); opacity: 0; }
+        }
+        
+        /* Theme Styles */
+        .theme-happy {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #f3e8ff 100%);
+        }
+        
+        .theme-sad {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 30%, #475569 60%, #64748b 100%);
+        }
+        
+        .sad-overlay {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.6) 100%);
+        }
+        
+        .theme-angry {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 30%, #dc2626 60%, #ef4444 100%);
+        }
+        
+        .angry-overlay {
+            background: linear-gradient(135deg, rgba(127, 29, 29, 0.8) 0%, rgba(153, 27, 27, 0.6) 100%);
+        }
+        
+        .rain {
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, #60a5fa, #3b82f6);
+            animation: rain-fall 0.8s linear infinite;
+            border-radius: 2px;
+        }
+        
+        @keyframes rain-fall {
+            0% { transform: translateY(-100vh); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        
+        .lightning {
+            position: absolute;
+            color: #fbbf24;
+            animation: lightning-flash 3s ease-in-out infinite;
+        }
+        
+        @keyframes lightning-flash {
+            0%, 90%, 100% { opacity: 0; }
+            5%, 10% { opacity: 1; text-shadow: 0 0 10px #fbbf24; }
+        }
+        
+        .storm-cloud {
+            position: absolute;
+            color: #6b7280;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .fire-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #f59e0b, #dc2626);
+            border-radius: 50%;
+            animation: fire-rise 2s ease-out infinite;
+        }
+        
+        @keyframes fire-rise {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-50px) scale(0.3); opacity: 0; }
+        }
+        
+        /* Welcome Animation Styles */
+        .welcome-text {
+            animation: welcomeTextGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes welcomeTextGlow {
+            0% { text-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.3); }
+            100% { text-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 40px rgba(255,255,255,0.6); }
+        }
+        
+        .floating-heart {
+            animation: floatingHeart 3s ease-in-out infinite;
+        }
+        
+        @keyframes floatingHeart {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-10px) rotate(5deg) scale(1.1); }
+            50% { transform: translateY(-5px) rotate(-3deg) scale(1.05); }
+            75% { transform: translateY(-15px) rotate(8deg) scale(1.15); }
+        }
+        
+        .welcome-scale-in {
+            animation: welcomeScaleIn 1s ease-out forwards;
+        }
+        
+        @keyframes welcomeScaleIn {
+            0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+            50% { transform: scale(1.1) rotate(-90deg); opacity: 0.8; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        .welcome-fade-out {
+            animation: welcomeFadeOut 0.8s ease-in forwards;
+        }
+        
+        @keyframes welcomeFadeOut {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.8); }
+        }
+        
+        .main-fade-in {
+            animation: mainFadeIn 1s ease-out forwards;
+        }
+        
+        @keyframes mainFadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-pink-100 via-rose-100 to-purple-200 p-3">
+    <!-- Theme Effects Background -->
+    <div id="themeEffects" class="fixed inset-0 pointer-events-none overflow-hidden">
+        <!-- Happy theme (default) -->
+        <div id="happyEffects">
+            <div class="floating absolute top-8 left-4 text-pink-400 text-xl emoji">💖</div>
+            <div class="floating absolute top-16 right-6 text-rose-400 text-lg emoji">💕</div>
+            <div class="floating absolute top-32 left-1/4 text-purple-400 text-lg emoji">💜</div>
+            <div class="floating absolute top-48 right-1/3 text-pink-500 text-xl emoji">🌸</div>
+            <div class="floating absolute bottom-32 left-6 text-rose-300 text-lg emoji">🌹</div>
+            <div class="floating absolute bottom-48 right-4 text-pink-400 text-lg emoji">🦋</div>
+            <div class="floating absolute top-1/2 left-4 text-purple-300 text-lg emoji">✨</div>
+            <div class="floating absolute bottom-16 right-1/4 text-rose-400 text-xl emoji">💝</div>
+        </div>
+        
+        <!-- Sad theme -->
+        <div id="sadEffects" class="hidden">
+            <!-- Dark storm clouds -->
+            <div class="storm-cloud absolute top-4 left-4 text-3xl emoji opacity-80">⛈️</div>
+            <div class="storm-cloud absolute top-8 right-8 text-2xl emoji opacity-70">🌧️</div>
+            <div class="storm-cloud absolute top-16 left-1/3 text-2xl emoji opacity-60">☁️</div>
+            <div class="lightning absolute top-12 right-1/4 text-2xl emoji">⚡</div>
+            
+            <!-- Rain drops -->
+            <div class="rain absolute top-0 left-1/4" style="animation-delay: 0s;"></div>
+            <div class="rain absolute top-0 left-1/2" style="animation-delay: 0.2s;"></div>
+            <div class="rain absolute top-0 left-3/4" style="animation-delay: 0.4s;"></div>
+            <div class="rain absolute top-0 left-1/6" style="animation-delay: 0.6s;"></div>
+            <div class="rain absolute top-0 right-1/4" style="animation-delay: 0.8s;"></div>
+            
+            <!-- Sad emojis -->
+            <div class="floating absolute top-40 right-1/4 text-blue-300 text-xl emoji opacity-70">💧</div>
+            <div class="floating absolute bottom-32 left-8 text-blue-200 text-2xl emoji opacity-80">😢</div>
+            <div class="floating absolute bottom-48 right-8 text-slate-300 text-lg emoji opacity-60">💔</div>
+            <div class="floating absolute top-1/2 left-8 text-blue-400 text-lg emoji opacity-50">🌊</div>
+            <div class="floating absolute bottom-16 right-1/3 text-slate-400 text-xl emoji opacity-40">🌫️</div>
+        </div>
+        
+        <!-- Angry theme -->
+        <div id="angryEffects" class="hidden">
+            <!-- Fire and explosion effects -->
+            <div class="floating absolute top-8 left-8 text-red-400 text-2xl emoji opacity-90">💢</div>
+            <div class="floating absolute top-16 right-8 text-orange-400 text-2xl emoji opacity-80">🔥</div>
+            <div class="floating absolute top-32 left-1/4 text-red-300 text-xl emoji opacity-70">😡</div>
+            <div class="lightning absolute top-48 right-1/3 text-yellow-400 text-2xl emoji">⚡</div>
+            <div class="floating absolute bottom-32 left-8 text-red-400 text-xl emoji opacity-80">💥</div>
+            <div class="floating absolute bottom-48 right-8 text-orange-400 text-2xl emoji opacity-70">🌋</div>
+            <div class="floating absolute top-1/2 left-8 text-red-300 text-lg emoji opacity-60">🔴</div>
+            <div class="floating absolute bottom-16 right-1/4 text-orange-300 text-xl emoji opacity-50">🌶️</div>
+            
+            <!-- Fire particles -->
+            <div class="fire-particle absolute top-20 left-12" style="animation-delay: 0s;"></div>
+            <div class="fire-particle absolute top-24 right-16" style="animation-delay: 0.3s;"></div>
+            <div class="fire-particle absolute top-36 left-1/3" style="animation-delay: 0.6s;"></div>
+            <div class="fire-particle absolute bottom-40 right-12" style="animation-delay: 0.9s;"></div>
+            <div class="fire-particle absolute bottom-28 left-16" style="animation-delay: 1.2s;"></div>
+        </div>
+    </div>
+
+    <!-- Welcome Animation Overlay -->
+    <div id="welcomeOverlay" class="fixed inset-0 bg-gradient-to-br from-pink-400 via-rose-400 to-purple-500 z-50 flex items-center justify-center" style="display: none;">
+        <div class="text-center transform scale-0 opacity-0" id="welcomeContent">
+            <!-- Main Welcome Text -->
+            <div class="mb-8">
+                <h1 class="text-6xl font-bold text-white mb-4 welcome-text" style="text-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+                    Haii Arinaa
+                </h1>
+                <div class="text-4xl mb-4 space-x-2">
+                    <span class="inline-block animate-bounce emoji" style="animation-delay: 0s;">👋</span>
+                    <span class="inline-block animate-bounce emoji" style="animation-delay: 0.2s;">💕</span>
+                    <span class="inline-block animate-bounce emoji" style="animation-delay: 0.4s;">✨</span>
+                </div>
+                <p class="text-xl text-white/90 font-medium mb-6" style="text-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                    Selamat datang di notebook cinta kita sayang! 💖
+                </p>
+            </div>
+            
+            <!-- Floating Hearts Animation -->
+            <div class="relative">
+                <div class="floating-heart absolute -top-20 -left-10 text-4xl emoji opacity-80">💖</div>
+                <div class="floating-heart absolute -top-16 right-8 text-3xl emoji opacity-70" style="animation-delay: 0.5s;">💕</div>
+                <div class="floating-heart absolute -top-24 left-1/2 text-2xl emoji opacity-60" style="animation-delay: 1s;">💝</div>
+                <div class="floating-heart absolute -bottom-16 -left-8 text-3xl emoji opacity-75" style="animation-delay: 1.5s;">🌸</div>
+                <div class="floating-heart absolute -bottom-20 right-6 text-4xl emoji opacity-80" style="animation-delay: 2s;">🦋</div>
+            </div>
+            
+            <!-- Loading Animation -->
+            <div class="mt-8">
+                <div class="flex justify-center items-center space-x-2 mb-4">
+                    <div class="w-3 h-3 bg-white rounded-full animate-pulse" style="animation-delay: 0s;"></div>
+                    <div class="w-3 h-3 bg-white rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+                    <div class="w-3 h-3 bg-white rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+                </div>
+                <p class="text-white/80 text-sm font-medium">
+                    Menyiapkan notebook spesial untukmu... 💕
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-sm mx-auto relative z-10" id="mainContent">
+        <!-- Main Title at Top Center -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold gradient-text mb-6 leading-tight">
+                <span class="heart-beat inline-block emoji">💕</span>
+                Notebook untuk Arina
+                <span class="heart-beat inline-block emoji">💕</span>
+            </h1>
+        </div>
+
+        <!-- Subtitle Section -->
+        <div class="text-center mb-6">
+            <div class="romantic-border p-3 mb-4 romantic-glow">
+                <p class="text-lg text-pink-700 mb-2 font-semibold">
+                    <span class="emoji">💌</span> Dari Nutrya dengan cinta <span class="emoji">💌</span>
+                </p>
+                <p class="text-sm text-pink-600">
+                    Tempat menyimpan semua kenangan manis dan indah kita berdua <span class="sparkle emoji">✨</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Main Notebook Container -->
+        <div id="notebookContainer" class="notebook-paper rounded-2xl p-4 note-shadow mb-6 border-l-4 border-pink-400">
+            <!-- Date and Weather -->
+            <div class="mb-4">
+                <div class="flex items-center justify-center space-x-2 mb-2">
+                    <span class="text-xl emoji pulse">📅</span>
+                    <span id="currentDate" class="text-pink-800 font-semibold text-sm text-center"></span>
+                </div>
+                <div class="flex items-center justify-center space-x-2">
+                    <span id="weatherIcon" class="text-xl sparkle emoji">☀️</span>
+                    <span id="weatherText" class="text-pink-700 font-medium text-sm text-center">Cerah seperti senyum Arina</span>
+                </div>
+            </div>
+
+            <!-- Theme Selector -->
+            <div class="mb-4">
+                <label class="block text-pink-700 text-lg font-bold mb-3">
+                    <span class="sparkle inline-block emoji">🎨</span> Pilih tema sesuai perasaanmu:
+                </label>
+                <div class="grid grid-cols-3 gap-2 mb-4">
+                    <button onclick="selectTheme('happy')" id="happyTheme" class="theme-btn touch-btn px-3 py-2 bg-gradient-to-r from-pink-200 to-rose-200 hover:from-pink-300 hover:to-rose-300 text-pink-800 rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-pink-300 emoji font-medium text-sm ring-4 ring-pink-400">
+                        😊 Senang
+                    </button>
+                    <button onclick="selectTheme('sad')" id="sadTheme" class="theme-btn touch-btn px-3 py-2 bg-gradient-to-r from-blue-200 to-indigo-200 hover:from-blue-300 hover:to-indigo-300 text-blue-800 rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-blue-300 emoji font-medium text-sm">
+                        😢 Sedih
+                    </button>
+                    <button onclick="selectTheme('angry')" id="angryTheme" class="theme-btn touch-btn px-3 py-2 bg-gradient-to-r from-red-200 to-orange-200 hover:from-red-300 hover:to-orange-300 text-red-800 rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-red-300 emoji font-medium text-sm">
+                        😠 Marah
+                    </button>
+                </div>
+            </div>
+
+            <!-- Note Input Area -->
+            <div class="mb-4">
+                <label class="block text-pink-700 text-lg font-bold mb-3">
+                    <span class="bounce inline-block emoji">✍️</span> <span id="noteLabel">Tulis catatan cinta hari ini:</span>
+                </label>
+                <textarea 
+                    id="noteInput"
+                    placeholder="Ceritakan apa yang membuatmu bahagia hari ini, sayang... 💭"
+                    class="w-full h-28 p-3 border-2 border-pink-200 rounded-xl focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-100 resize-none bg-white/70 text-pink-900 transition-all duration-300 romantic-glow text-sm"
+                ></textarea>
+            </div>
+
+            <!-- Mood Selector -->
+            <div class="mb-4">
+                <label class="block text-pink-700 text-lg font-bold mb-3">
+                    <span class="sparkle inline-block emoji">😊</span> <span id="moodLabel">Bagaimana perasaan Arina hari ini?</span>
+                </label>
+                <div id="moodOptions" class="grid grid-cols-2 gap-2">
+                    <!-- Happy moods (default) -->
+                    <button onclick="selectMood('😍', 'Jatuh Cinta')" class="mood-btn touch-btn px-3 py-2 bg-gradient-to-r from-pink-200 to-rose-200 hover:from-pink-300 hover:to-rose-300 text-pink-800 rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-pink-300 emoji font-medium text-sm">
+                        😍 Jatuh Cinta
+                    </button>
+                    <button onclick="selectMood('🥰', 'Bahagia Banget')" class="mood-btn touch-btn px-3 py-2 bg-gradient-to-r from-rose-200 to-pink-200 hover:from-rose-300 hover:to-pink-300 text-rose-800 rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-rose-300 emoji font-medium text-sm">
+                        🥰 Bahagia Banget
+                    </button>
+                    <button onclick="selectMood('😘', 'Kangen Nutrya')" class="mood-btn touch-btn px-3 py-2 bg-gradient-to-r from-purple-200 to-pink-200 hover:from-purple-300 hover:to-pink-300 text-purple-800 rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-purple-300 emoji font-medium text-sm">
+                        😘 Kangen Nutrya
+                    </button>
+                    <button onclick="selectMood('🤗', 'Pengen Peluk')" class="mood-btn touch-btn px-3 py-2 bg-gradient-to-r from-pink-200 to-purple-200 hover:from-pink-300 hover:to-purple-300 text-pink-800 rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-pink-300 emoji font-medium text-sm">
+                        🤗 Pengen Peluk
+                    </button>
+                    <button onclick="selectMood('✨', 'Berkilau')" class="mood-btn touch-btn px-3 py-2 bg-gradient-to-r from-rose-200 to-purple-200 hover:from-rose-300 hover:to-purple-300 text-rose-800 rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-rose-300 emoji font-medium text-sm">
+                        ✨ Berkilau
+                    </button>
+                    <button onclick="showCustomMood()" class="mood-btn touch-btn px-3 py-2 bg-gradient-to-r from-indigo-200 to-purple-200 hover:from-indigo-300 hover:to-purple-300 text-indigo-800 rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-indigo-300 emoji font-medium text-sm">
+                        🎨 Custom
+                    </button>
+                </div>
+                
+                <!-- Custom Mood Input -->
+                <div id="customMoodSection" class="hidden mt-3 p-3 bg-white/60 rounded-xl border-2 border-indigo-200">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span class="text-2xl emoji">😊</span>
+                        <input 
+                            type="text" 
+                            id="customMoodInput" 
+                            placeholder="Tulis perasaanmu sendiri..."
+                            class="flex-1 p-2 border border-pink-200 rounded-lg focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-100 bg-white/80 text-pink-900 text-sm"
+                            maxlength="30"
+                        >
+                    </div>
+                    <div class="flex space-x-2">
+                        <button onclick="saveCustomMood()" class="flex-1 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 text-sm">
+                            ✅ Simpan
+                        </button>
+                        <button onclick="cancelCustomMood()" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 font-medium py-2 px-4 rounded-lg transition-all duration-300 text-sm">
+                            ❌ Batal
+                        </button>
+                    </div>
+                </div>
+                <div id="selectedMood" class="mt-3 text-base"></div>
+            </div>
+
+            <!-- Photo Upload -->
+            <div class="mb-4">
+                <label class="block text-pink-700 text-lg font-bold mb-3">
+                    <span class="sparkle inline-block emoji">📸</span> Tambah foto kenangan manis:
+                </label>
+                <div class="flex flex-col items-center space-y-3">
+                    <input 
+                        type="file" 
+                        id="photoInput" 
+                        accept="image/*" 
+                        class="hidden"
+                        onchange="handlePhotoUpload(event)"
+                    >
+                    <label 
+                        for="photoInput"
+                        class="touch-btn bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-3 px-6 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg romantic-glow text-sm w-full cursor-pointer inline-block text-center"
+                    >
+                        <span class="mr-2 emoji">📷</span>Pilih Foto Cantik
+                    </label>
+                    <div id="photoPreview" class="hidden w-full text-center">
+                        <img id="previewImage" class="max-w-full max-h-40 rounded-xl shadow-lg border-2 border-pink-200 romantic-glow mx-auto" alt="Preview foto">
+                        <button 
+                            onclick="removePhoto()"
+                            class="mt-2 text-red-500 hover:text-red-700 transition-colors duration-200 font-medium text-sm"
+                        >
+                            <span class="text-base emoji">🗑️</span> Hapus foto
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comforting Message (for sad/angry themes) -->
+            <div id="comfortingMessage" class="hidden mb-4 p-4 rounded-2xl border-2 text-center">
+                <div id="comfortingContent">
+                    <!-- Content will be inserted by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Save Button -->
+            <div class="text-center mb-4">
+                <button 
+                    onclick="saveNote()"
+                    id="saveButton"
+                    class="touch-btn bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg romantic-glow text-base w-full"
+                >
+                    <span class="mr-2 emoji">💾</span>Simpan Kenangan Manis
+                </button>
+            </div>
+        </div>
+
+        <!-- Saved Notes Display -->
+        <div class="romantic-border bg-white/50 glass-effect rounded-2xl p-4 note-shadow">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold gradient-text">
+                    <span class="sparkle inline-block emoji">📖</span> Koleksi Kenangan
+                </h2>
+                <button 
+                    onclick="startSlideshow()"
+                    id="slideshowBtn"
+                    class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-2 px-3 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg romantic-glow text-sm touch-btn"
+                >
+                    <span class="mr-1 emoji">🎬</span>Slideshow
+                </button>
+            </div>
+            <div id="savedNotes" class="space-y-4">
+                <div class="text-center text-pink-600 py-8">
+                    <span class="text-4xl block mb-3 emoji pulse">🌸</span>
+                    <p class="text-sm font-medium emoji">Belum ada catatan tersimpan. Yuk mulai tulis kenangan pertama kita, sayang! 💕</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Romantic Footer -->
+        <div class="text-center mt-6 p-4">
+            <div class="text-xl mb-3 space-x-1">
+                <span class="heart-beat inline-block emoji">💖</span>
+                <span class="floating inline-block emoji">🌟</span>
+                <span class="bounce inline-block emoji">🦋</span>
+                <span class="sparkle inline-block emoji">✨</span>
+                <span class="pulse inline-block emoji">🌸</span>
+                <span class="heart-beat inline-block emoji">💕</span>
+            </div>
+            <p class="text-pink-700 text-base font-semibold emoji mb-2">
+                Dibuat dengan cinta tak terhingga untuk Arina tersayang 💝
+            </p>
+            <p class="text-pink-600 text-sm emoji">
+                Semoga setiap hari kita selalu dipenuhi kebahagiaan 🥰
+            </p>
+        </div>
+    </div>
+
+    <!-- Slideshow Modal -->
+    <div id="slideshowModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+        <div class="relative w-full h-full flex items-center justify-center">
+            <!-- Close Button -->
+            <button 
+                onclick="closeSlideshow()"
+                class="absolute top-4 right-4 z-60 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 touch-btn"
+            >
+                <span class="text-2xl">✕</span>
+            </button>
+            
+            <!-- Navigation Buttons -->
+            <button 
+                onclick="previousSlide()"
+                class="absolute left-4 z-60 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 touch-btn"
+            >
+                <span class="text-2xl">‹</span>
+            </button>
+            
+            <button 
+                onclick="nextSlide()"
+                class="absolute right-4 z-60 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 touch-btn"
+            >
+                <span class="text-2xl">›</span>
+            </button>
+            
+            <!-- Play/Pause Button -->
+            <button 
+                onclick="toggleAutoplay()"
+                id="playPauseBtn"
+                class="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-60 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white rounded-full p-4 transition-all duration-300 touch-btn"
+            >
+                <span class="text-2xl emoji" id="playPauseIcon">⏸️</span>
+            </button>
+            
+            <!-- Slide Content -->
+            <div id="slideContent" class="max-w-sm mx-auto p-4 text-center">
+                <!-- Slide content will be inserted here -->
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="absolute bottom-4 left-4 right-4 z-60">
+                <div class="bg-white/20 rounded-full h-2">
+                    <div id="progressBar" class="bg-gradient-to-r from-pink-500 to-purple-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <div class="flex justify-between items-center mt-2 text-white text-sm">
+                    <span id="slideCounter">1 / 1</span>
+                    <span class="text-xs opacity-75">Auto: 4 detik per slide</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set current date and weather
+        function updateDate() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('id-ID', options);
+            updateWeather();
+        }
+
+        function updateWeather() {
+            const now = new Date();
+            const hour = now.getHours();
+            const weatherIcon = document.getElementById('weatherIcon');
+            const weatherText = document.getElementById('weatherText');
+            
+            if (hour >= 5 && hour < 10) {
+                // Pagi (5-10)
+                weatherIcon.textContent = '🌅';
+                weatherText.textContent = 'Pagi yang indah seperti senyum Arina';
+            } else if (hour >= 10 && hour < 15) {
+                // Siang (10-15)
+                weatherIcon.textContent = '☀️';
+                weatherText.textContent = 'Cerah seperti senyum Arina';
+            } else if (hour >= 15 && hour < 18) {
+                // Sore (15-18)
+                weatherIcon.textContent = '🌤️';
+                weatherText.textContent = 'Sore yang hangat seperti pelukan Arina';
+            } else if (hour >= 18 && hour < 21) {
+                // Petang (18-21)
+                weatherIcon.textContent = '🌆';
+                weatherText.textContent = 'Petang yang romantis bersama Arina';
+            } else {
+                // Malam (21-5)
+                weatherIcon.textContent = '🌙';
+                weatherText.textContent = 'Malam yang tenang seperti hati Arina';
+            }
+        }
+
+        let selectedMoodData = null;
+        let selectedPhoto = null;
+        let currentTheme = 'happy';
+
+        // Comforting messages from Nutrya
+        const comfortingMessages = {
+            sad: [
+                "Sayang, aku tahu kamu sedang sedih sekarang. Tapi ingat, aku selalu di sini untukmu. Kamu tidak sendirian, dan perasaan ini akan berlalu. Aku sayang banget sama kamu 💙",
+                "Arina sayang, sedih itu wajar kok. Tapi jangan lupa kalau kamu itu kuat dan luar biasa. Aku percaya kamu bisa melewati ini. Peluk erat dari Nutrya 🤗💙",
+                "Hey sayang, lihat langit di atas sana. Setelah hujan pasti ada pelangi. Begitu juga dengan perasaanmu sekarang. Aku akan selalu mendampingimu 🌈💙",
+                "Arina tersayang, boleh kok nangis kalau memang perlu. Tapi ingat, setelah air mata kering, senyummu yang indah akan kembali bersinar. Aku menunggu senyum itu 😊💙",
+                "Sayang, kamu tahu kan kalau aku sayang banget sama kamu? Apapun yang terjadi, perasaan itu tidak akan pernah berubah. Kamu berharga banget buat aku 💎💙"
+            ],
+            angry: [
+                "Arina sayang, aku tahu kamu lagi kesal. Tarik napas dalam-dalam ya. Kemarahan ini akan berlalu, dan aku akan tetap di sini bersamamu. Kamu tetap cantik meski lagi marah 🧡",
+                "Hey sayang, marah itu normal kok. Tapi jangan biarkan kemarahan merusak harimu yang indah. Aku sayang sama kamu, termasuk saat kamu lagi kesal begini 🧡",
+                "Arina tersayang, coba hitung sampai 10 dan pikirkan hal-hal yang bikin kamu bahagia. Misalnya... aku! Hehe. Aku selalu siap bikin kamu tersenyum lagi 😊🧡",
+                "Sayang, kemarahan itu seperti api. Kalau dibiarkan terus, bisa membakar diri sendiri. Yuk kita padamkan bareng-bareng. Aku di sini untukmu 🧡",
+                "Arina sayang, ingat nggak waktu kita ketawa bareng? Nah, aku pengen lihat tawa itu lagi. Kemarahan ini sementara, tapi kebahagiaanmu itu yang abadi 😄🧡"
+            ]
+        };
+
+        // Theme data
+        const themes = {
+            happy: {
+                name: 'Senang',
+                bgClass: 'bg-gradient-to-br from-pink-100 via-rose-100 to-purple-200',
+                noteLabel: 'Tulis catatan cinta hari ini:',
+                moodLabel: 'Bagaimana perasaan Arina hari ini?',
+                moods: [
+                    { emoji: '😍', text: 'Jatuh Cinta', colors: 'from-pink-200 to-rose-200 hover:from-pink-300 hover:to-rose-300 text-pink-800 border-pink-300' },
+                    { emoji: '🥰', text: 'Bahagia Banget', colors: 'from-rose-200 to-pink-200 hover:from-rose-300 hover:to-pink-300 text-rose-800 border-rose-300' },
+                    { emoji: '😘', text: 'Kangen Nutrya', colors: 'from-purple-200 to-pink-200 hover:from-purple-300 hover:to-pink-300 text-purple-800 border-purple-300' },
+                    { emoji: '🤗', text: 'Pengen Peluk', colors: 'from-pink-200 to-purple-200 hover:from-pink-300 hover:to-purple-300 text-pink-800 border-pink-300' },
+                    { emoji: '✨', text: 'Berkilau', colors: 'from-rose-200 to-purple-200 hover:from-rose-300 hover:to-purple-300 text-rose-800 border-rose-300' },
+                    { emoji: '🎨', text: 'Custom', colors: 'from-indigo-200 to-purple-200 hover:from-indigo-300 hover:to-purple-300 text-indigo-800 border-indigo-300' }
+                ]
+            },
+            sad: {
+                name: 'Sedih',
+                bgClass: 'bg-gradient-to-br from-slate-800 via-slate-700 to-slate-600',
+                noteLabel: 'Ceritakan apa yang membuatmu sedih sayang...',
+                moodLabel: 'Apa yang Arina rasakan sekarang?',
+                moods: [
+                    { emoji: '😢', text: 'Sedih Banget', colors: 'from-blue-200 to-indigo-200 hover:from-blue-300 hover:to-indigo-300 text-blue-800 border-blue-300' },
+                    { emoji: '😭', text: 'Pengen Nangis', colors: 'from-indigo-200 to-blue-200 hover:from-indigo-300 hover:to-blue-300 text-indigo-800 border-indigo-300' },
+                    { emoji: '💔', text: 'Patah Hati', colors: 'from-slate-200 to-blue-200 hover:from-slate-300 hover:to-blue-300 text-slate-800 border-slate-300' },
+                    { emoji: '😞', text: 'Kecewa', colors: 'from-blue-200 to-slate-200 hover:from-blue-300 hover:to-slate-300 text-blue-800 border-blue-300' },
+                    { emoji: '🥺', text: 'Butuh Pelukan', colors: 'from-indigo-200 to-slate-200 hover:from-indigo-300 hover:to-slate-300 text-indigo-800 border-indigo-300' },
+                    { emoji: '🎨', text: 'Custom', colors: 'from-gray-200 to-blue-200 hover:from-gray-300 hover:to-blue-300 text-gray-800 border-gray-300' }
+                ]
+            },
+            angry: {
+                name: 'Marah',
+                bgClass: 'bg-gradient-to-br from-red-900 via-red-800 to-orange-700',
+                noteLabel: 'Ceritakan apa yang membuatmu kesal sayang...',
+                moodLabel: 'Seberapa kesal Arina sekarang?',
+                moods: [
+                    { emoji: '😠', text: 'Kesal Banget', colors: 'from-red-200 to-orange-200 hover:from-red-300 hover:to-orange-300 text-red-800 border-red-300' },
+                    { emoji: '😡', text: 'Marah Besar', colors: 'from-orange-200 to-red-200 hover:from-orange-300 hover:to-red-300 text-orange-800 border-orange-300' },
+                    { emoji: '🤬', text: 'Geram', colors: 'from-red-200 to-yellow-200 hover:from-red-300 hover:to-yellow-300 text-red-800 border-red-300' },
+                    { emoji: '💢', text: 'Jengkel', colors: 'from-orange-200 to-yellow-200 hover:from-orange-300 hover:to-yellow-300 text-orange-800 border-orange-300' },
+                    { emoji: '😤', text: 'Dongkol', colors: 'from-yellow-200 to-orange-200 hover:from-yellow-300 hover:to-orange-300 text-yellow-800 border-yellow-300' },
+                    { emoji: '🎨', text: 'Custom', colors: 'from-red-200 to-pink-200 hover:from-red-300 hover:to-pink-300 text-red-800 border-red-300' }
+                ]
+            }
+        };
+
+        function selectTheme(theme) {
+            currentTheme = theme;
+            
+            // Update theme button selection
+            document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('ring-4', 'ring-pink-400', 'ring-blue-400', 'ring-red-400'));
+            
+            if (theme === 'happy') {
+                document.getElementById('happyTheme').classList.add('ring-4', 'ring-pink-400');
+                document.body.className = 'min-h-screen bg-gradient-to-br from-pink-100 via-rose-100 to-purple-200 p-3';
+            } else if (theme === 'sad') {
+                document.getElementById('sadTheme').classList.add('ring-4', 'ring-blue-400');
+                document.body.className = 'min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-600 p-3';
+            } else if (theme === 'angry') {
+                document.getElementById('angryTheme').classList.add('ring-4', 'ring-red-400');
+                document.body.className = 'min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-orange-700 p-3';
+            }
+            
+            // Update background effects
+            document.getElementById('happyEffects').classList.toggle('hidden', theme !== 'happy');
+            document.getElementById('sadEffects').classList.toggle('hidden', theme !== 'sad');
+            document.getElementById('angryEffects').classList.toggle('hidden', theme !== 'angry');
+            
+            // Update notebook container appearance
+            const notebookContainer = document.getElementById('notebookContainer');
+            if (theme === 'sad') {
+                notebookContainer.className = 'rounded-2xl p-4 note-shadow mb-6 border-l-4 border-blue-400 bg-gradient-to-br from-slate-100/80 to-blue-100/80 backdrop-blur-lg';
+            } else if (theme === 'angry') {
+                notebookContainer.className = 'rounded-2xl p-4 note-shadow mb-6 border-l-4 border-red-400 bg-gradient-to-br from-orange-100/80 to-red-100/80 backdrop-blur-lg';
+            } else {
+                notebookContainer.className = 'notebook-paper rounded-2xl p-4 note-shadow mb-6 border-l-4 border-pink-400';
+            }
+            
+            // Update labels and mood options
+            updateThemeContent(theme);
+            
+            // Clear selected mood when changing theme
+            selectedMoodData = null;
+            document.getElementById('selectedMood').innerHTML = '';
+            document.querySelectorAll('.mood-btn').forEach(btn => btn.classList.remove('ring-4', 'ring-pink-400', 'ring-blue-400', 'ring-red-400'));
+        }
+
+        function updateThemeContent(theme) {
+            const themeData = themes[theme];
+            
+            // Update labels
+            document.getElementById('noteLabel').textContent = themeData.noteLabel;
+            document.getElementById('moodLabel').textContent = themeData.moodLabel;
+            
+            // Update mood options
+            const moodContainer = document.getElementById('moodOptions');
+            moodContainer.innerHTML = themeData.moods.map(mood => `
+                <button onclick="${mood.text === 'Custom' ? 'showCustomMood()' : `selectMood('${mood.emoji}', '${mood.text}')`}" class="mood-btn touch-btn px-3 py-2 bg-gradient-to-r ${mood.colors} rounded-lg transition-all duration-300 transform hover:scale-105 border-2 emoji font-medium text-sm">
+                    ${mood.emoji} ${mood.text}
+                </button>
+            `).join('');
+            
+            // Show/hide comforting message and update save button
+            const comfortingDiv = document.getElementById('comfortingMessage');
+            const saveButton = document.getElementById('saveButton');
+            
+            if (theme === 'sad' || theme === 'angry') {
+                // Show comforting message
+                const messages = comfortingMessages[theme];
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                
+                const bgColor = theme === 'sad' ? 'bg-gradient-to-r from-blue-100 to-indigo-100 border-blue-300 text-blue-800' : 'bg-gradient-to-r from-orange-100 to-red-100 border-red-300 text-red-800';
+                
+                document.getElementById('comfortingContent').innerHTML = `
+                    <div class="mb-3">
+                        <span class="text-2xl emoji">${theme === 'sad' ? '🤗' : '🫂'}</span>
+                        <h3 class="font-bold text-lg mb-2">Pesan dari Nutrya:</h3>
+                    </div>
+                    <p class="text-sm leading-relaxed font-medium italic">
+                        "${randomMessage}"
+                    </p>
+                    <div class="mt-3 space-x-1">
+                        <span class="text-lg emoji">${theme === 'sad' ? '💙' : '🧡'}</span>
+                        <span class="text-lg emoji">✨</span>
+                        <span class="text-lg emoji">${theme === 'sad' ? '🌈' : '🌟'}</span>
+                    </div>
+                `;
+                
+                comfortingDiv.className = `mb-4 p-4 rounded-2xl border-2 text-center ${bgColor}`;
+                comfortingDiv.classList.remove('hidden');
+                
+                // Update save button
+                if (theme === 'sad') {
+                    saveButton.className = 'touch-btn bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-6 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg text-base w-full';
+                    saveButton.innerHTML = '<span class="mr-2 emoji">💙</span>Simpan Perasaanku';
+                } else {
+                    saveButton.className = 'touch-btn bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-bold py-3 px-6 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg text-base w-full';
+                    saveButton.innerHTML = '<span class="mr-2 emoji">🧡</span>Simpan Perasaanku';
+                }
+            } else {
+                // Hide comforting message for happy theme
+                comfortingDiv.classList.add('hidden');
+                
+                // Reset save button to original
+                saveButton.className = 'touch-btn bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg romantic-glow text-base w-full';
+                saveButton.innerHTML = '<span class="mr-2 emoji">💾</span>Simpan Kenangan Manis';
+            }
+        }
+
+        function selectMood(emoji, mood) {
+            selectedMoodData = { emoji, mood };
+            document.getElementById('selectedMood').innerHTML = `
+                <span class="text-2xl emoji">${emoji}</span> 
+                <span class="text-pink-800 font-semibold text-sm">Mood Arina: ${mood}</span>
+            `;
+            
+            // Add selected effect
+            const moodButtons = document.querySelectorAll('.mood-btn');
+            moodButtons.forEach(btn => btn.classList.remove('ring-4', 'ring-pink-400'));
+            event.target.classList.add('ring-4', 'ring-pink-400');
+            
+            // Hide custom mood section if visible
+            document.getElementById('customMoodSection').classList.add('hidden');
+        }
+
+        function showCustomMood() {
+            // Clear other selections
+            const moodButtons = document.querySelectorAll('.mood-btn');
+            moodButtons.forEach(btn => btn.classList.remove('ring-4', 'ring-pink-400'));
+            event.target.classList.add('ring-4', 'ring-pink-400');
+            
+            // Show custom mood section
+            document.getElementById('customMoodSection').classList.remove('hidden');
+            document.getElementById('customMoodInput').focus();
+            
+            // Clear selected mood display
+            document.getElementById('selectedMood').innerHTML = '';
+        }
+
+        function saveCustomMood() {
+            const customMood = document.getElementById('customMoodInput').value.trim();
+            
+            if (!customMood) {
+                alert('Yuk tulis perasaanmu dulu sayang! 💕');
+                return;
+            }
+            
+            // Set custom mood with heart emoji
+            selectedMoodData = { emoji: '💖', mood: customMood };
+            document.getElementById('selectedMood').innerHTML = `
+                <span class="text-2xl emoji">💖</span> 
+                <span class="text-pink-800 font-semibold text-sm">Mood Arina: ${customMood}</span>
+            `;
+            
+            // Hide custom section and clear input
+            document.getElementById('customMoodSection').classList.add('hidden');
+            document.getElementById('customMoodInput').value = '';
+        }
+
+        function cancelCustomMood() {
+            // Hide custom section and clear input
+            document.getElementById('customMoodSection').classList.add('hidden');
+            document.getElementById('customMoodInput').value = '';
+            
+            // Remove selection from custom button
+            const moodButtons = document.querySelectorAll('.mood-btn');
+            moodButtons.forEach(btn => btn.classList.remove('ring-4', 'ring-pink-400'));
+        }
+
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                // Validate file type
+                if (!file.type.startsWith('image/')) {
+                    alert('Pilih file gambar ya sayang! 📸💕');
+                    return;
+                }
+                
+                // Validate file size (max 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('Foto terlalu besar sayang! Maksimal 5MB ya 💕');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        selectedPhoto = e.target.result;
+                        const previewDiv = document.getElementById('photoPreview');
+                        const previewImg = document.getElementById('previewImage');
+                        
+                        previewImg.src = selectedPhoto;
+                        previewImg.onload = function() {
+                            previewDiv.classList.remove('hidden');
+                        };
+                        
+                        previewImg.onerror = function() {
+                            alert('Gagal memuat foto sayang! Coba foto lain ya 💕');
+                            selectedPhoto = null;
+                        };
+                        
+                    } catch (error) {
+                        console.error('Error loading photo:', error);
+                        alert('Ada masalah saat memuat foto sayang! Coba lagi ya 💕');
+                        selectedPhoto = null;
+                    }
+                };
+                
+                reader.onerror = function() {
+                    alert('Gagal membaca file foto sayang! Coba lagi ya 💕');
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removePhoto() {
+            selectedPhoto = null;
+            document.getElementById('photoPreview').classList.add('hidden');
+            document.getElementById('photoInput').value = '';
+        }
+
+        function saveNote() {
+            const noteText = document.getElementById('noteInput').value.trim();
+            
+            if (!noteText && !selectedPhoto) {
+                alert('Yuk tulis sesuatu atau tambah foto dulu sayang! 💕');
+                return;
+            }
+
+            const note = {
+                id: Date.now(),
+                text: noteText,
+                photo: selectedPhoto,
+                mood: selectedMoodData || { emoji: '💕', mood: 'Penuh Cinta' },
+                theme: currentTheme,
+                date: new Date().toLocaleDateString('id-ID', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                })
+            };
+
+            try {
+                // Get existing notes
+                let savedNotes = JSON.parse(localStorage.getItem('loveNotes') || '[]');
+                savedNotes.unshift(note);
+                localStorage.setItem('loveNotes', JSON.stringify(savedNotes));
+
+                // Clear form
+                document.getElementById('noteInput').value = '';
+                selectedMoodData = null;
+                selectedPhoto = null;
+                document.getElementById('selectedMood').innerHTML = '';
+                document.getElementById('photoPreview').classList.add('hidden');
+                document.getElementById('photoInput').value = '';
+                document.querySelectorAll('.mood-btn').forEach(btn => btn.classList.remove('ring-4', 'ring-pink-400'));
+
+                // Show success message
+                showSuccessMessage();
+                
+                // Refresh display immediately
+                setTimeout(() => {
+                    displayNotes();
+                }, 100);
+                
+            } catch (error) {
+                console.error('Error saving note:', error);
+                alert('Maaf sayang, ada masalah saat menyimpan. Coba lagi ya! 💕');
+            }
+        }
+
+        function showSuccessMessage() {
+            const message = document.createElement('div');
+            message.className = 'fixed top-4 right-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-4 rounded-2xl shadow-xl z-50 transform translate-x-full transition-transform duration-300 romantic-glow';
+            message.innerHTML = '<span class="emoji">💕</span> Kenangan tersimpan dengan manis! <span class="emoji">✨</span>';
+            document.body.appendChild(message);
+
+            setTimeout(() => {
+                message.classList.remove('translate-x-full');
+            }, 100);
+
+            setTimeout(() => {
+                message.classList.add('translate-x-full');
+                setTimeout(() => message.remove(), 300);
+            }, 4000);
+        }
+
+        function displayNotes() {
+            const savedNotes = JSON.parse(localStorage.getItem('loveNotes') || '[]');
+            const container = document.getElementById('savedNotes');
+
+            if (savedNotes.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center text-pink-600 py-8">
+                        <span class="text-4xl block mb-3 emoji pulse">🌸</span>
+                        <p class="text-sm font-medium emoji">Belum ada catatan tersimpan. Yuk mulai tulis kenangan pertama kita, sayang! 💕</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = savedNotes.map(note => {
+                const theme = note.theme || 'happy';
+                let bgColors, borderColor, textColor;
+                
+                if (theme === 'sad') {
+                    bgColors = 'from-blue-50 to-indigo-50';
+                    borderColor = 'border-blue-400';
+                    textColor = 'text-blue-800';
+                } else if (theme === 'angry') {
+                    bgColors = 'from-red-50 to-orange-50';
+                    borderColor = 'border-red-400';
+                    textColor = 'text-red-800';
+                } else {
+                    bgColors = 'from-pink-50 to-rose-50';
+                    borderColor = 'border-pink-400';
+                    textColor = 'text-pink-800';
+                }
+                
+                return `
+                    <div class="bg-gradient-to-r ${bgColors} rounded-xl p-4 border-l-4 ${borderColor} transform hover:scale-[1.01] transition-all duration-300 note-shadow romantic-glow">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-2xl emoji">${note.mood.emoji}</span>
+                                <span class="${textColor} font-semibold text-sm">${note.mood.mood}</span>
+                                <span class="text-xs ${textColor} opacity-60 ml-2">${themes[theme]?.name || 'Senang'}</span>
+                            </div>
+                            <button onclick="deleteNote(${note.id})" class="text-red-400 hover:text-red-600 transition-colors duration-200 transform hover:scale-110 touch-btn">
+                                <span class="text-lg emoji">🗑️</span>
+                            </button>
+                        </div>
+                        ${note.photo ? `
+                            <div class="mb-3 text-center">
+                                <img src="${note.photo}" alt="Foto kenangan" class="max-w-full max-h-48 rounded-lg shadow-md border-2 ${borderColor.replace('border-', 'border-').replace('-400', '-200')} mx-auto romantic-glow">
+                            </div>
+                        ` : ''}
+                        ${note.text ? `<p class="${textColor.replace('-800', '-900')} mb-3 leading-relaxed font-medium text-sm">${note.text}</p>` : ''}
+                        <div class="text-xs ${textColor.replace('-800', '-600')} flex items-center font-medium">
+                            <span class="mr-1 emoji">🕐</span>
+                            ${note.date}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function deleteNote(id) {
+            if (confirm('Yakin mau hapus kenangan manis ini? 🥺💕')) {
+                try {
+                    let savedNotes = JSON.parse(localStorage.getItem('loveNotes') || '[]');
+                    const originalLength = savedNotes.length;
+                    
+                    // Filter out the note with matching id
+                    savedNotes = savedNotes.filter(note => note.id !== id);
+                    
+                    // Verify deletion worked
+                    if (savedNotes.length === originalLength) {
+                        console.error('Failed to delete note with id:', id);
+                        alert('Gagal menghapus kenangan sayang! Coba lagi ya 💕');
+                        return;
+                    }
+                    
+                    // Save back to localStorage
+                    localStorage.setItem('loveNotes', JSON.stringify(savedNotes));
+                    
+                    // Verify it was saved
+                    const verification = JSON.parse(localStorage.getItem('loveNotes') || '[]');
+                    const stillExists = verification.find(note => note.id === id);
+                    
+                    if (stillExists) {
+                        console.error('Note still exists after deletion attempt');
+                        alert('Gagal menghapus kenangan sayang! Coba refresh halaman ya 💕');
+                        return;
+                    }
+                    
+                    // Show success message
+                    const message = document.createElement('div');
+                    message.className = 'fixed top-4 right-4 bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-2xl shadow-xl z-50 transform translate-x-full transition-transform duration-300';
+                    message.innerHTML = '<span class="emoji">🗑️</span> Kenangan berhasil dihapus <span class="emoji">💔</span>';
+                    document.body.appendChild(message);
+
+                    setTimeout(() => {
+                        message.classList.remove('translate-x-full');
+                    }, 100);
+
+                    setTimeout(() => {
+                        message.classList.add('translate-x-full');
+                        setTimeout(() => message.remove(), 300);
+                    }, 3000);
+                    
+                    // Refresh display
+                    displayNotes();
+                    
+                } catch (error) {
+                    console.error('Error deleting note:', error);
+                    alert('Ada masalah saat menghapus kenangan sayang! Coba lagi ya 💕');
+                }
+            }
+        }
+
+        // Slideshow functionality
+        let slideshowData = [];
+        let currentSlideIndex = 0;
+        let slideshowInterval = null;
+        let isPlaying = true;
+
+        function startSlideshow() {
+            const savedNotes = JSON.parse(localStorage.getItem('loveNotes') || '[]');
+            
+            if (savedNotes.length === 0) {
+                alert('Belum ada kenangan untuk ditampilkan sayang! Yuk buat catatan pertama dulu 💕');
+                return;
+            }
+            
+            slideshowData = savedNotes;
+            currentSlideIndex = 0;
+            isPlaying = true;
+            
+            document.getElementById('slideshowModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            showSlide(0);
+            startAutoplay();
+        }
+
+        function closeSlideshow() {
+            document.getElementById('slideshowModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            stopAutoplay();
+        }
+
+        function showSlide(index) {
+            if (slideshowData.length === 0) return;
+            
+            currentSlideIndex = index;
+            const note = slideshowData[index];
+            
+            const slideContent = document.getElementById('slideContent');
+            slideContent.innerHTML = `
+                <div class="bg-gradient-to-br from-pink-100/90 to-purple-100/90 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-white/30 transform transition-all duration-700 scale-100 opacity-100 slide-enter">
+                    <!-- Mood Header -->
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-3 animate-bounce emoji">${note.mood.emoji}</div>
+                        <h3 class="text-2xl font-bold gradient-text mb-2">
+                            ${note.mood.mood}
+                        </h3>
+                        <p class="text-pink-600 text-sm font-medium">
+                            ${note.date}
+                        </p>
+                    </div>
+                    
+                    ${note.photo ? `
+                        <div class="mb-6 text-center">
+                            <img src="${note.photo}" alt="Foto kenangan" class="max-w-full max-h-64 rounded-2xl shadow-xl border-4 border-white/50 mx-auto transform hover:scale-105 transition-transform duration-300">
+                        </div>
+                    ` : ''}
+                    
+                    ${note.text ? `
+                        <div class="bg-white/60 rounded-2xl p-4 mb-4 border border-pink-200/50">
+                            <p class="text-pink-900 leading-relaxed font-medium text-base text-center">
+                                "${note.text}"
+                            </p>
+                        </div>
+                    ` : ''}
+                    
+                    <!-- Decorative Elements -->
+                    <div class="text-center space-x-2 opacity-60">
+                        <span class="text-2xl emoji animate-pulse">💕</span>
+                        <span class="text-xl emoji animate-bounce" style="animation-delay: 0.2s;">✨</span>
+                        <span class="text-2xl emoji animate-pulse" style="animation-delay: 0.4s;">🌸</span>
+                        <span class="text-xl emoji animate-bounce" style="animation-delay: 0.6s;">💖</span>
+                        <span class="text-2xl emoji animate-pulse" style="animation-delay: 0.8s;">🦋</span>
+                    </div>
+                </div>
+            `;
+            
+            // Update counter and progress
+            document.getElementById('slideCounter').textContent = `${index + 1} / ${slideshowData.length}`;
+            updateProgressBar();
+        }
+
+        function nextSlide() {
+            if (slideshowData.length === 0) return;
+            currentSlideIndex = (currentSlideIndex + 1) % slideshowData.length;
+            showSlide(currentSlideIndex);
+        }
+
+        function previousSlide() {
+            if (slideshowData.length === 0) return;
+            currentSlideIndex = currentSlideIndex === 0 ? slideshowData.length - 1 : currentSlideIndex - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        function startAutoplay() {
+            stopAutoplay(); // Clear any existing interval
+            if (isPlaying) {
+                slideshowInterval = setInterval(() => {
+                    nextSlide();
+                }, 4000); // 4 seconds per slide
+            }
+        }
+
+        function stopAutoplay() {
+            if (slideshowInterval) {
+                clearInterval(slideshowInterval);
+                slideshowInterval = null;
+            }
+        }
+
+        function toggleAutoplay() {
+            isPlaying = !isPlaying;
+            const playPauseIcon = document.getElementById('playPauseIcon');
+            
+            if (isPlaying) {
+                playPauseIcon.textContent = '⏸️';
+                startAutoplay();
+            } else {
+                playPauseIcon.textContent = '▶️';
+                stopAutoplay();
+            }
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentSlideIndex + 1) / slideshowData.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Keyboard navigation for slideshow
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('slideshowModal');
+            if (!modal.classList.contains('hidden')) {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        previousSlide();
+                        break;
+                    case 'ArrowRight':
+                    case ' ':
+                        e.preventDefault();
+                        nextSlide();
+                        break;
+                    case 'Escape':
+                        closeSlideshow();
+                        break;
+                    case 'p':
+                    case 'P':
+                        toggleAutoplay();
+                        break;
+                }
+            }
+        });
+
+        // Initialize
+        updateDate();
+        displayNotes();
+        
+        // Update date every minute
+        setInterval(updateDate, 60000);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97efd31c97d644c5',t:'MTc1Nzg1MjI4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
